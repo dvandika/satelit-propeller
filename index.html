@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SATELIT</title>
+    <link rel="stylesheet" href="./plugins/bootstrap.min.css" />
+    <style>
+      .iframeContainer {
+        width: 476px;
+        background-size: contain;
+        position: absolute;
+        z-index: 3333;
+      }
+
+      #propellerFrame {
+        background-size: contain;
+        z-index: 999;
+        width: 476px;
+      }
+
+      .bgkalender {
+        background-size: contain;
+        z-index: 999;
+        width: 476px;
+        opacity: 0.8;
+      }
+    </style>
+    <script src="./plugins/propeller.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="kalkulator">
+            <h1 class="text-center">SATELIT</h1>
+          <div class="iframeContainer">
+            <div id="propellerFrame"><img src="./img/_satelit-alt.png" /></div>
+          </div>
+          <div class="bgkalender">
+            <div><img src="./img/_satelit-bg.png" /></div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p>
+            <b>Keterangan:</b> Silahkan putar lingkaran tersebut dengan mouse (pada layar destop) atau dengan jari (pada layar smartphone) Anda. Arahkan tanda panah berwarna merah (menstruasi terakhir) sesuai tanggal menstruasi terakhir Anda. Kemudian baca hasilnya, sesuai informasi yang terdapat dalam lingkaran Kalender Kehamilan tersebut.
+        </p>
+      </div>
+    </div>
+    <script>
+      new Propeller("#propellerFrame", {
+        inertia: 0.95,
+        onrotate: function () {
+          if (window.iphonerotated === undefined) {
+            setTimeout(function () {
+              document.getElementById("tip").innerHTML =
+                "Now feel free to use content";
+            }, 500);
+          }
+          window.iphonerotated = true;
+        },
+      });
+    </script>
+  </body>
+</html>
