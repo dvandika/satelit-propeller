@@ -33,18 +33,48 @@
     <div class="container">
       <div class="d-flex justify-content-center">
         <div class="kalkulator">
-            <h1 class="text-center">SATELIT</h1>
-          <div class="iframeContainer">
-            <div id="propellerFrame"><img src="img/_satelit-alt.png" /></div>
+          <h1 class="text-center">SATELIT</h1>
+          <div id="first-slide">
+            <div class="iframeContainer">
+              <div id="propellerFrame">
+                <img
+                  src="https://raw.githubusercontent.com/dvandika/satelit-propeller/master/img/_satelit-alt.png"
+                />
+              </div>
+            </div>
+            <div class="bgkalender">
+              <div>
+                <img
+                  src="https://raw.githubusercontent.com/dvandika/satelit-propeller/master/img/_satelit-bg.png"
+                />
+              </div>
+            </div>
           </div>
-          <div class="bgkalender">
-            <div><img src="img/_satelit-bg.png" /></div>
+          <div id="second-slide" style="display:none;">
+            <div class="bgkalender">
+              <div>
+                <img src="./img/_satelit-note.png" style="width: 476px;" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="d-flex justify-content-center">
+        <p class="text-center">
+          <button id="btnSlide1" class="btn btn-primary" disabled>
+            Slide 1</button
+          >&nbsp;
+          <button id="btnSlide2" class="btn btn-primary">Slide 2</button>
+        </p>
+      </div>
+      <div class="d-flex justify-content-center">
         <p>
-            <b>Keterangan:</b> Silahkan putar lingkaran tersebut dengan mouse (pada layar destop) atau dengan jari (pada layar smartphone) Anda. Arahkan tanda panah berwarna merah (menstruasi terakhir) sesuai tanggal menstruasi terakhir Anda. Kemudian baca hasilnya, sesuai informasi yang terdapat dalam lingkaran Kalender Kehamilan tersebut.
+          <b>Keterangan:</b> Silahkan putar lingkaran tersebut dengan mouse
+          (pada layar komputer) atau dengan jari (pada layar smartphone) Anda.
+          Arahkan tanda panah yang berwarna merah (Hari Pertama Menstruasi)
+          sesuai dengan tanggal menstruasi Anda. Kemudian, area berwarna biru
+          merupakan tanggal dimana kemungkinan kehamilan tinggi apabila anda
+          melakukan hubungan seksual tanpa pengaman
         </p>
       </div>
     </div>
@@ -60,6 +90,28 @@
           }
           window.iphonerotated = true;
         },
+      });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#btnSlide1").click(function () {
+          $("#btnSlide1").prop("disabled", true);
+          $("#btnSlide2").prop("disabled", false);
+          $("#second-slide").hide();
+          $("#first-slide").show();
+        });
+
+        $("#btnSlide2").click(function () {
+          $("#btnSlide1").prop("disabled", false);
+          $("#btnSlide2").prop("disabled", true);
+          $("#first-slide").hide();
+          $("#second-slide").show();
+        });
       });
     </script>
   </body>
